@@ -57,4 +57,18 @@ public class MaxKColorFitnessFunction implements EvaluationFunction {
     public String foundConflict(){
     	return conflict ? "Failed to find Max-K Color combination !" : "Found Max-K Color Combination !";
     }
+
+
+	@Override
+	public boolean isGlobalMax(int stringLength, double fitnessValue) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public double getGlobalMax(int stringLength) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

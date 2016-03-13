@@ -45,5 +45,16 @@ public class FourPeaksEvaluationFunction implements EvaluationFunction {
         return Math.max(tail, head) + r;
     }
     
+    public double getGlobalMax(int stringLength) {
+    	int leadingOnes = t + 1;
+    	//assumes non negative
+    	int trailingZeros = stringLength - (t + 1);
+    	int r = trailingZeros > t ? stringLength : 0;
+    	return Math.max(leadingOnes, trailingZeros) + r;
+    }
     
+    public boolean isGlobalMax(int stringLength, double fitnessValue) {
+    	
+    	return ((int)getGlobalMax(stringLength)) == (int)fitnessValue;
+    }
 }

@@ -19,6 +19,7 @@ public class RandomizedHillClimbing extends OptimizationAlgorithm {
      */
     private double curVal;
     
+
     /**
      * Make a new randomized hill climbing
      */
@@ -32,6 +33,7 @@ public class RandomizedHillClimbing extends OptimizationAlgorithm {
      * @see shared.Trainer#train()
      */
     public double train() {
+        this.trainingIterations++;
         HillClimbingProblem hcp = (HillClimbingProblem) getOptimizationProblem();
         Instance neigh = hcp.neighbor(cur);
         double neighVal = hcp.value(neigh);
@@ -39,6 +41,8 @@ public class RandomizedHillClimbing extends OptimizationAlgorithm {
             curVal = neighVal;
             cur = neigh;
         }
+        
+        this.functionEvaluationsCount++;
         return curVal;
     }
 
@@ -48,5 +52,7 @@ public class RandomizedHillClimbing extends OptimizationAlgorithm {
     public Instance getOptimal() {
         return cur;
     }
+    
+    
 
 }

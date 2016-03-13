@@ -74,6 +74,7 @@ public class StandardGeneticAlgorithm extends OptimizationAlgorithm {
      * @see shared.Trainer#train()
      */
     public double train() {
+        this.trainingIterations++;
         GeneticAlgorithmProblem ga = (GeneticAlgorithmProblem) getOptimizationProblem();
         double[] probabilities = new double[population.length];
         // calculate probability distribution over the population
@@ -117,11 +118,13 @@ public class StandardGeneticAlgorithm extends OptimizationAlgorithm {
         for (int i = 0; i < newValues.length; i++) {
             if (newValues[i] == -1) {
                 newValues[i] = ga.value(newPopulation[i]);
+                this.functionEvaluationsCount++;
             }
         }
         // the new generation
         population = newPopulation;
         values = newValues;
+        
         return sum / populationSize;
     }
 

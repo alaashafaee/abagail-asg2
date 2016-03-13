@@ -78,6 +78,7 @@ public class MIMIC extends OptimizationAlgorithm {
      * @see shared.Trainer#train()
      */
     public double train() {
+        this.trainingIterations++;
         ProbabilisticOptimizationProblem op = (ProbabilisticOptimizationProblem) getOptimizationProblem();
         Instance[] data = new Instance[samples];
         for (int i = 0; i < data.length; i++) {
@@ -86,6 +87,7 @@ public class MIMIC extends OptimizationAlgorithm {
         double[] values = new double[data.length];
         for (int i = 0; i < data.length; i++) {
             values[i] = op.value(data[i]);
+            this.functionEvaluationsCount++;
         }
         double[] temp = new double[values.length];
         System.arraycopy(values, 0, temp, 0, temp.length);

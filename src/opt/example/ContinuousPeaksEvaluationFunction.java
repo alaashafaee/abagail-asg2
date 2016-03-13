@@ -58,4 +58,16 @@ public class ContinuousPeaksEvaluationFunction implements EvaluationFunction {
         }
         return Math.max(max1, max0) + r;
     }
+
+	@Override
+	public boolean isGlobalMax(int stringLength, double fitnessValue) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public double getGlobalMax(int stringLength) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

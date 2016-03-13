@@ -40,7 +40,7 @@ public class FlipFlopTest {
     public static void main(String[] args) {
         int[] ranges = new int[N];
         Arrays.fill(ranges, 2);
-        EvaluationFunction ef = new FourPeaksEvaluationFunction(T);
+        EvaluationFunction ef = new FlipFlopEvaluationFunction();
         Distribution odd = new DiscreteUniformDistribution(ranges);
         NeighborFunction nf = new DiscreteChangeOneNeighbor(ranges);
         MutationFunction mf = new DiscreteChangeOneMutation(ranges);

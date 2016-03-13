@@ -15,6 +15,16 @@ public abstract class OptimizationAlgorithm implements Trainer {
     private OptimizationProblem op;
     
     /**
+     * The number of function evaluations
+     */
+    protected long functionEvaluationsCount;
+    
+    /**
+     * The number of training iterations
+     */
+    protected long trainingIterations;
+    
+    /**
      * Make a new optimization algorithm
      * @param op the problem to optimize
      */
@@ -31,9 +41,22 @@ public abstract class OptimizationAlgorithm implements Trainer {
     }
     
     /**
+     * Get the count of function evaluations
+     * @return the number of function evaluations during training
+     */
+    public long getFunctionEvaluations() {
+    	return this.functionEvaluationsCount;
+    }
+    
+    public long getTrainingIterations() {
+    	return this.trainingIterations;
+    }
+    
+    /**
      * Get the optimal data
      * @return the data
      */
     public abstract Instance getOptimal();
+    
 
 }

@@ -49,9 +49,11 @@ public class SimulatedAnnealing extends OptimizationAlgorithm {
      * @see shared.Trainer#train()
      */
     public double train() {
+        this.trainingIterations++;
         HillClimbingProblem p = (HillClimbingProblem) getOptimizationProblem();
         Instance neigh = p.neighbor(cur);
         double neighVal = p.value(neigh);
+        this.functionEvaluationsCount++;
         if (neighVal > curVal || Distribution.random.nextDouble() < 
                 Math.exp((neighVal - curVal) / t)) {
             curVal = neighVal;

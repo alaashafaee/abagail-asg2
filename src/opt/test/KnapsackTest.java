@@ -59,7 +59,7 @@ public class KnapsackTest {
             weights[i] = random.nextDouble() * MAX_WEIGHT;
             volumes[i] = random.nextDouble() * MAX_VOLUME;
         }
-         int[] ranges = new int[NUM_ITEMS];
+        int[] ranges = new int[NUM_ITEMS];
         Arrays.fill(ranges, COPIES_EACH + 1);
         EvaluationFunction ef = new KnapsackEvaluationFunction(weights, volumes, KNAPSACK_VOLUME, copies);
         Distribution odd = new DiscreteUniformDistribution(ranges);
@@ -82,12 +82,12 @@ public class KnapsackTest {
         System.out.println(ef.value(sa.getOptimal()));
         
         StandardGeneticAlgorithm ga = new StandardGeneticAlgorithm(200, 150, 25, gap);
-        fit = new FixedIterationTrainer(ga, 1000);
+        fit = new FixedIterationTrainer(ga, 20000);
         fit.train();
         System.out.println(ef.value(ga.getOptimal()));
         
         MIMIC mimic = new MIMIC(200, 100, pop);
-        fit = new FixedIterationTrainer(mimic, 1000);
+        fit = new FixedIterationTrainer(mimic, 2000);
         fit.train();
         System.out.println(ef.value(mimic.getOptimal()));
     }

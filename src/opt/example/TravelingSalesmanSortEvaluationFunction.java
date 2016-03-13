@@ -38,4 +38,16 @@ public class TravelingSalesmanSortEvaluationFunction extends TravelingSalesmanEv
         return 1/distance;
     }
 
+	@Override
+	public boolean isGlobalMax(int stringLength, double fitnessValue) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public double getGlobalMax(int stringLength) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

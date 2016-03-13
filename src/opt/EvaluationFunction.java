@@ -15,5 +15,9 @@ public interface EvaluationFunction {
      * @return the value
      */
     public abstract double value(Instance d);
+    
+    public boolean isGlobalMax(int stringLength, double fitnessValue);
+    
+    public double getGlobalMax(int stringLength);
 
 }
